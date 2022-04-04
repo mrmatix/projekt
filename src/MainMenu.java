@@ -22,9 +22,9 @@ public class MainMenu {
         // Menu
         while (true) {
             System.out.println("To repord a call, press 1"); // works
-            System.out.println("To display all reports, press 2");// TODO //not working
+            System.out.println("To display all reports, press 2");// works
             System.out.println("To display a specific report, press 3"); // working
-            System.out.println("To display all available services, press 4");// TODO //not working, need to add
+            System.out.println("To display all available services, press 4");// TODO // works, need to add
                                                                              // decrementing amount of services
             System.out.println("To remove a specific report, press 5");// TODO //not working
             System.out.println("To remove all reports, press 6"); // works
@@ -46,6 +46,7 @@ public class MainMenu {
                     // Read the report and service data from EmergencyList
                     emergencyList.readReportFileAll("C:/UEL/CN5004/TERM PROJECT/Term Project/src/report.txt",
                             serviceItems);
+                    emergencyList.displayReports(serviceItems);
                     System.out.println();
                     System.out.println();
                     break;
@@ -60,6 +61,7 @@ public class MainMenu {
                     emergencyServiceList.displayAllServices(
                             "C:/UEL/CN5004/TERM PROJECT/Term Project/src/emergencyServices.txt",
                             emergencyServiceItems);
+                    emergencyServiceList.displayEmergencyServices(emergencyServiceItems);
                     System.out.println();
                     System.out.println();
                     break;

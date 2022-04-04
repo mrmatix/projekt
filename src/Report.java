@@ -42,11 +42,15 @@ public class Report {
 
     public void displayReport() {
         Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt(); // The line number
+        int n = scan.nextInt(); // The line number with a zero
+        int m = n - 1;
         try {
             String line = Files.readAllLines(Paths.get("C:/UEL/CN5004/TERM PROJECT/Term Project/src/report.txt"))
-                    .get(n);
+                    .get(m);
+            System.out.println("***REPORTS***");
+            System.out.println("=============");
             System.out.println(line);
+            System.out.println("=============");
         } catch (IOException e) {
             System.out.println(e);
         }

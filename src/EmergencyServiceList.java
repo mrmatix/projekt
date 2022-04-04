@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 class EmergencyServiceItem {
     private String serviceName;
-    private String serviceCount;
+    private Integer serviceCount;
 
-    EmergencyServiceItem(String serviceName, String serviceCount) {
+    EmergencyServiceItem(String serviceName, Integer serviceCount) {
         this.serviceName = serviceName;
         this.serviceCount = serviceCount;
     }
@@ -16,12 +16,25 @@ class EmergencyServiceItem {
         return serviceName;
     }
 
-    public String getServiceCount() {
+    public Integer getServiceCount() {
         return serviceCount;
     }
 }
 
 public class EmergencyServiceList {
+
+    public void displayEmergencyServices(ArrayList<EmergencyServiceItem> datas) {
+        // display emergency services
+        System.out.println("***EMERGENCY SERVICES***");
+        System.out.println("=============");
+        // Loop through info and names
+        for (int i = 0; i < datas.size(); i++) {
+            EmergencyServiceItem data = datas.get(i);
+            System.out.printf("%d. %s \t %d\n", i + 1, data.getServiceName(), data.getServiceCount());
+        }
+        System.out.println("=============");
+    }
+
     public void displayAllServices(String fileName, ArrayList<EmergencyServiceItem> data) {
         try {
             FileReader fr = new FileReader(fileName);
@@ -31,7 +44,7 @@ public class EmergencyServiceList {
                 // Robbery,PD
                 String tokens[] = line.split(",");
                 String serviceName = tokens[0];
-                String serviceCount = tokens[1];
+                Integer serviceCount = Integer.parseInt(tokens[1]);
                 data.add(new EmergencyServiceItem(serviceName, serviceCount));
             }
             br.close();
