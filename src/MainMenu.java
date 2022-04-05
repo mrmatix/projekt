@@ -26,7 +26,7 @@ public class MainMenu {
             System.out.println("To display a specific report, press 3"); // working
             System.out.println("To display all available services, press 4");// TODO // works, need to add
                                                                              // decrementing amount of services
-            System.out.println("To remove a specific report, press 5");// TODO //not working
+            System.out.println("To remove a specific report, press 5");// works
             System.out.println("To remove all reports, press 6"); // works
             System.out.println("To exit, press 7"); // works
 
@@ -38,6 +38,12 @@ public class MainMenu {
                 case 1:
                     System.out.println("*** Report a call ***");
                     emergency.reportCall();
+                    // TODO emergencyService.removeUnit(emergencyService);
+
+                    // 1. wybranie opcji przez użytkownik (PD, EX)
+                    // 2. rezerwujemy sobie jakieś zasoby dla tej opcji (PD i EX)
+                    // 3. zaraportowanie czegoś dla wybranych opcji (PD i EX)
+                    // 4. zaktualizowanie statystyk po wykonaniu
                     System.out.println();
                     System.out.println();
                     break;

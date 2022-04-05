@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Emergency {
-    public void reportCall() {
+    // Setup Scanner
+    Scanner scan = new Scanner(System.in);
+    int number = 0;
+    boolean isNumber;
 
-        // Setup Scanner
-        Scanner scan = new Scanner(System.in);
-        int number = 0;
-        boolean isNumber;
+    public void reportCall() {
 
         try {
             FileWriter fw = new FileWriter("C:/UEL/CN5004/TERM PROJECT/Term Project/src/report.txt", true);

@@ -17,24 +17,24 @@ public class Report {
         Scanner scan = new Scanner(System.in);
         System.out.print("Which one would you like to remove? ");
         int place = scan.nextInt();
+        String currentLine;
+        int count = 0;
         try {
             File inputFile = new File("C:/UEL/CN5004/TERM PROJECT/Term Project/src/report.txt");
             File tempFile = new File("C:/UEL/CN5004/TERM PROJECT/Term Project/src/reportTemp.txt");
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            int itemToRemove = (place - 1) * 4;
-            String currentLine;
-            int line = -1;
+            int lineToRemove = place;
             while ((currentLine = reader.readLine()) != null) {
-                line++;
-                if (line == itemToRemove || line == itemToRemove + 1 || line == itemToRemove + 2
-                        || line == itemToRemove + 3) {
+                count++;
+                if (count == lineToRemove) {
                     continue;
                 }
                 writer.write(currentLine + System.getProperty("line.separator"));
             }
             writer.close();
             reader.close();
+            inputFile.delete();
             tempFile.renameTo(inputFile);
         } catch (Exception x) {
         }

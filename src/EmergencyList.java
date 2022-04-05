@@ -1,7 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File; // Import the File class
-import java.io.FileNotFoundException; // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,12 +48,6 @@ public class EmergencyList {
                 datas.add(new ServiceItem(reportInfo, serviceName));
             }
             br.close();
-            // File myObj = new File(fileName); //DOESNT USE ARRAYLIST
-            // Scanner myReader = new Scanner(myObj);
-            // while (myReader.hasNextLine()) {
-            // String data1 = myReader.nextLine();
-            // System.out.println(data1);
-            // }
         } catch (IOException e) {
             System.out.println("Error - cannot read from the file " + fileName);
         }
