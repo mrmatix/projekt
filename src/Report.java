@@ -25,6 +25,7 @@ public class Report {
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
             int lineToRemove = place;
+            // Going through the file line by line to remove the n-th line input by a user
             while ((currentLine = reader.readLine()) != null) {
                 count++;
                 if (count == lineToRemove) {
@@ -43,7 +44,7 @@ public class Report {
     public void displayReport() {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt(); // The line number with a zero
-        int m = n - 1;
+        int m = n - 1; // The line number with a real value
         try {
             String line = Files.readAllLines(Paths.get("C:/UEL/CN5004/TERM PROJECT/Term Project/src/report.txt"))
                     .get(m);

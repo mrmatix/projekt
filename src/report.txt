@@ -1,4 +1,0 @@
-Homicide,FD
-Mugging,PD,FD
-Car Accident,ED
-Car Accident,ED

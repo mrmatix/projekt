@@ -5,11 +5,13 @@ import java.util.Scanner;
 public class MainMenu {
 
     public static void main(String[] args) throws Exception {
+        // Declaring class-references
         Emergency emergency = new Emergency();
         EmergencyList emergencyList = new EmergencyList();
         EmergencyServiceList emergencyServiceList = new EmergencyServiceList();
         Report report = new Report();
 
+        // Scanner
         Scanner scan = new Scanner(System.in);
 
         // Data
@@ -21,14 +23,13 @@ public class MainMenu {
 
         // Menu
         while (true) {
-            System.out.println("To repord a call, press 1"); // works
-            System.out.println("To display all reports, press 2");// works
-            System.out.println("To display a specific report, press 3"); // working
-            System.out.println("To display all available services, press 4");// TODO // works, need to add
-                                                                             // decrementing amount of services
-            System.out.println("To remove a specific report, press 5");// works
-            System.out.println("To remove all reports, press 6"); // works
-            System.out.println("To exit, press 7"); // works
+            System.out.println("To report a call, press 1");
+            System.out.println("To display all reports, press 2");
+            System.out.println("To display a specific report, press 3");
+            System.out.println("To display all available services, press 4");
+            System.out.println("To remove a specific report, press 5");
+            System.out.println("To remove all reports, press 6");
+            System.out.println("To exit, press 7");
 
             System.out.println();
 
@@ -37,6 +38,7 @@ public class MainMenu {
             switch (choice) {
                 case 1:
                     System.out.println("*** Report a call ***");
+                    // Calling the reportCall() method from Emergency class
                     emergency.reportCall();
                     // TODO emergencyService.removeUnit(emergencyService);
 

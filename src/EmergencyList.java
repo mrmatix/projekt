@@ -3,10 +3,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-class ServiceItem {
+class ServiceItem { // Local class
+    // Local variables
     private String reportInfo;
     private String serviceName;
 
+    // Local object
     ServiceItem(String reportInfo, String serviceName) {
         this.reportInfo = reportInfo;
         this.serviceName = serviceName;

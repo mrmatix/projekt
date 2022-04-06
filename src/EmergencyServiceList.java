@@ -3,7 +3,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-class EmergencyServiceItem {
+class EmergencyServiceItem { // Local class
+    // Local variables
     private String serviceName;
     private Integer serviceCount;
 
@@ -41,10 +42,11 @@ public class EmergencyServiceList {
             BufferedReader br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
-                // Robbery,PD
+                // PD,10
                 String tokens[] = line.split(",");
                 String serviceName = tokens[0];
-                Integer serviceCount = Integer.parseInt(tokens[1]);
+                Integer serviceCount = Integer.parseInt(tokens[1]); // Parses the string argument as a signed decimal
+                                                                    // integer
                 data.add(new EmergencyServiceItem(serviceName, serviceCount));
             }
             br.close();

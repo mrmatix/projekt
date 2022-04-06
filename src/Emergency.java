@@ -1,21 +1,24 @@
-import java.io.BufferedWriter;
+import java.io.BufferedWriter; // Import the BufferedWriter class
 import java.io.FileWriter; // Import the FileWriter class
 import java.io.IOException; // Import the IOException class to handle errors
-import java.io.PrintWriter;
-import java.util.Scanner;
+import java.io.PrintWriter; // Import the PrintWriter class
+import java.util.Scanner; // Import the Scanner class
 
 public class Emergency {
     // Setup Scanner
     Scanner scan = new Scanner(System.in);
+    // Initializing the number used for input
     int number = 0;
+    // true/false value that checks if user put in a number
     boolean isNumber;
 
     public void reportCall() {
-
+        // Simple try-catch
         try {
             FileWriter fw = new FileWriter("C:/UEL/CN5004/TERM PROJECT/Term Project/src/report.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
+            // Do-while to keep the loop going
             do {
                 System.out.println("Please select an emergency: ");
                 System.out.println("1: Robbery");
@@ -26,6 +29,8 @@ public class Emergency {
                 System.out.println("6: Arson");
                 System.out.println("7: Car Accident");
                 System.out.println("8: Your emergency is not on the list? Please type your emergency: ");
+                System.out.print("Enter your choice: ");
+                // If user inputs something a number then we go on and if not then we try again
                 if (scan.hasNextInt()) {
                     number = scan.nextInt();
                     isNumber = true;
@@ -34,11 +39,12 @@ public class Emergency {
                     isNumber = false;
                     scan.next();
                 }
-            } while (!(isNumber));
+            } while (!(isNumber)); // Loop
+            // Switch to take care of all available cases
             switch (number) {
                 case 1:
                     System.out.println("You have selected: Robbery");
-                    pw.write("Robbery");
+                    pw.write("Robbery"); // Adding to the file
                     break;
                 case 2:
                     System.out.println("You have selected: Homicide");
@@ -66,10 +72,10 @@ public class Emergency {
                     break;
                 case 8:
                     System.out.println("Please write your emergency: ");
-                    pw.write(scan.nextLine());
+                    pw.write(scan.nextLine()); // Custom message
             }
-            bw.write(",");
-            do {
+            bw.write(","); // Separator
+            do { // Same but for emergency services
                 System.out.println("Please select service you need: ");
                 System.out.println("Please select an emergency: ");
                 System.out.println("1: Police Department");
@@ -79,6 +85,7 @@ public class Emergency {
                 System.out.println("5: Police Department and Emergency Department");
                 System.out.println("6: Emergency Department and Fire Department");
                 System.out.println("7: Police Department and Fire Department and Emergency Department");
+                System.out.print("Enter your choice: ");
                 if (scan.hasNextInt()) {
                     number = scan.nextInt();
                     isNumber = true;
@@ -129,12 +136,12 @@ public class Emergency {
                     pw.write("ED");
                     break;
             }
-            bw.newLine();
-            pw.close();
+            bw.newLine(); // Always start on a new line
+            pw.close(); // Closing the file after we're done
             System.out.println("Successfully reported an emergency. It will be handled shotly.");
-        } catch (IOException e) {
+        } catch (IOException e) { // Catch exception
             System.out.println("An error occurred");
-            e.printStackTrace();
+            e.printStackTrace(); // Prints this throwable and its backtrace to the standard error stream
         }
     }
 }
