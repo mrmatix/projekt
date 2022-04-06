@@ -38,8 +38,8 @@ public class MainMenu {
                 case 1:
                     System.out.println("*** Report a call ***");
                     // Calling the reportCall() method from Emergency class
-                    emergency.reportCall();
-                    // TODO emergencyService.removeUnit(emergencyService);
+                    emergency.emergencyCall();
+                    EmergencyService.removeUnit(emergencyService);
 
                     // 1. wybranie opcji przez użytkownik (PD, EX)
                     // 2. rezerwujemy sobie jakieś zasoby dla tej opcji (PD i EX)

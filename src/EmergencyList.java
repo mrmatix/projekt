@@ -23,7 +23,7 @@ class ServiceItem { // Local class
     }
 }
 
-public class EmergencyList {
+public class EmergencyList extends Emergency {
 
     public void displayReports(ArrayList<ServiceItem> datas) {
         // display reports
@@ -44,7 +44,7 @@ public class EmergencyList {
             String line;
             while ((line = br.readLine()) != null) {
                 // Robbery,PD
-                String tokens[] = line.split(",");
+                String tokens[] = line.split("|");
                 String reportInfo = tokens[0];
                 String serviceName = tokens[1];
                 datas.add(new ServiceItem(reportInfo, serviceName));

@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class Report {
+public class Report extends EmergencyList {
     public void removeAllReports() throws IOException {
         new FileWriter("C:/UEL/CN5004/TERM PROJECT/Term Project/src/report.txt", false).close();
     }
