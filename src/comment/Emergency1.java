@@ -1,3 +1,5 @@
+package comment;
+
 import java.io.BufferedWriter; // Import the BufferedWriter class
 import java.io.FileWriter; // Import the FileWriter class
 import java.io.IOException; // Import the IOException class to handle errors

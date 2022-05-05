@@ -43,8 +43,8 @@ public class EmergencyList extends Emergency {
             BufferedReader br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
-                // Robbery,PD
-                String tokens[] = line.split("|");
+                // Robbery|PD,
+                String tokens[] = line.split("/");
                 String reportInfo = tokens[0];
                 String serviceName = tokens[1];
                 datas.add(new ServiceItem(reportInfo, serviceName));

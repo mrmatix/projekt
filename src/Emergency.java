@@ -1,4 +1,5 @@
 import java.io.BufferedWriter; // Import the BufferedWriter class
+import java.io.File;
 import java.io.FileWriter; // Import the FileWriter class
 import java.io.IOException; // Import the IOException class to handle errors
 import java.io.PrintWriter; // Import the PrintWriter class
@@ -9,19 +10,17 @@ import java.util.Scanner; // Import the Scanner class
 public class Emergency {
 
     public void emergencyCall() {
-        String selectedValue = emergencySelectedValue();
-        // printSelectedValue(selectedValue
 
+        callerCredentials();
+        String selectedValue = emergencySelectedValue();
+        // printSelectedValue(selectedValue)
         List<String> selectedEmergencyServices = emergencyServiceSelectedValue();
 
         try {
-
-            selectedEmergencyServices.forEach(EmergencyService::removeUnit); // rezerwacja ?
             saveCallToFile(selectedValue, selectedEmergencyServices);
         } catch (Exception e) {
-            System.out.println("BRAK jednostki");
+            System.out.println("NO UNITS AVAILABLE");
         }
-
     }
 
     private void saveCallToFile(String emergency, List<String> emergencyServices) {
@@ -32,9 +31,8 @@ public class Emergency {
             PrintWriter pw = new PrintWriter(bw);
 
             pw.write(emergency);
-            pw.write("|");
-            emergencyServices.stream().forEach(serice -> pw.write(serice + ",")); // FIXME last comma
-
+            pw.write("/");
+            emergencyServices.stream().forEach(service -> pw.write(service + ","));
             bw.newLine(); // Always start on a new line
             pw.close(); // Closing the file after we're done
 
@@ -61,7 +59,7 @@ public class Emergency {
             System.out.println("5: Assault");
             System.out.println("6: Arson");
             System.out.println("7: Car Accident");
-            System.out.println("8: Your emergency is not on the list? Please type your emergency: ");
+            System.out.println("8: Your emergency i s not on the list? Please type your emergency: ");
             System.out.print("Enter your choice: ");
             // If user inputs something a number then we go on and if not then we try again
             if (scan.hasNextInt()) {
@@ -79,6 +77,32 @@ public class Emergency {
         }
         return mapSelectedKeyToEmergency(number);
 
+    }
+
+    private void callerCredentials() {
+        Scanner scan = new Scanner(System.in);
+        String fullName;
+        String address;
+
+        try {
+            FileWriter fw = new FileWriter("C:/UEL/CN5004/TERM PROJECT/Term Project/src/clients.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+
+            System.out.println("Please state your full name: ");
+            fullName = scan.nextLine();
+            pw.write(fullName);
+            bw.write("/");
+            System.out.println("Please state your full address: ");
+            address = scan.nextLine();
+            pw.write(address);
+            bw.newLine(); // Always start on a new line
+            pw.close(); // Closing the file after we're done
+
+        } catch (IOException e) { // Catch exception
+            System.out.println("An error occurred");
+            e.printStackTrace(); // Prints this throwable and its backtrace to the standard error stream
+        }
     }
 
     private List<String> emergencyServiceSelectedValue() {
@@ -164,9 +188,7 @@ public class Emergency {
                 return "Arson";
             case 7:
                 return "Car Accident";
-
         }
         return null;
     }
-
 }
